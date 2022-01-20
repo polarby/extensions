@@ -16,7 +16,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDocumentId = exports.getChangeType = void 0;
-const firestore_bigquery_change_tracker_1 = require("@firebaseextensions/firestore-bigquery-change-tracker");
+const firestore_bigquery_change_tracker_1 = require("@outsauced/firestore-bigquery-change-tracker");
 function getChangeType(change) {
     if (!change.after.exists) {
         return firestore_bigquery_change_tracker_1.ChangeType.DELETE;

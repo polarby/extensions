@@ -17,7 +17,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const config_1 = require("./config");
 const functions = require("firebase-functions");
-const firestore_bigquery_change_tracker_1 = require("@firebaseextensions/firestore-bigquery-change-tracker");
+const firestore_bigquery_change_tracker_1 = require("@outsauced/firestore-bigquery-change-tracker");
 const logs = require("./logs");
 const util_1 = require("./util");
 const eventTracker = new firestore_bigquery_change_tracker_1.FirestoreBigQueryEventHistoryTracker({
@@ -25,6 +25,7 @@ const eventTracker = new firestore_bigquery_change_tracker_1.FirestoreBigQueryEv
     datasetId: config_1.default.datasetId,
     datasetLocation: config_1.default.datasetLocation,
     tablePartitioning: config_1.default.tablePartitioning,
+    backupTableId: config_1.default.backupCollectionId,
 });
 logs.init();
 exports.fsexportbigquery = functions.handler.firestore.document.onWrite(async (change, context) => {
